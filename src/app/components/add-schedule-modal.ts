@@ -238,10 +238,7 @@ import { FormsModule } from "@angular/forms";
                   (change)="onFileSelected($event)"
                 />
               </div>
-              <p
-                *ngIf="formData.fileName"
-                class="mt-2 text-sm text-[#212529]"
-              >
+              <p *ngIf="formData.fileName" class="mt-2 text-sm text-[#212529]">
                 Selected: {{ formData.fileName }}
               </p>
             </div>

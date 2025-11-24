@@ -19,7 +19,12 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
 @Component({
   selector: "app-event-setup",
   standalone: true,
-  imports: [CommonModule, EventDetailSidebarComponent, FormsModule, AddScheduleModalComponent],
+  imports: [
+    CommonModule,
+    EventDetailSidebarComponent,
+    FormsModule,
+    AddScheduleModalComponent,
+  ],
   template: `
     <div class="flex h-screen overflow-hidden bg-main-bg">
       <app-event-detail-sidebar
@@ -1316,7 +1321,10 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                 class="bg-white rounded shadow-md border border-[#E9E9E9]"
               >
                 <!-- Selected Features Tabs - Only Show If Features Are Selected -->
-                <div *ngIf="activeFeatures.length > 0" class="px-8 py-6 border-b border-[#CED4DA] bg-white">
+                <div
+                  *ngIf="activeFeatures.length > 0"
+                  class="px-8 py-6 border-b border-[#CED4DA] bg-white"
+                >
                   <div class="flex items-center gap-3 flex-wrap">
                     <button
                       *ngFor="let featureId of activeFeatures; let i = index"
@@ -1344,14 +1352,29 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                 <!-- Content Area -->
                 <div class="p-8">
                   <!-- Schedule Feature Content -->
-                  <div *ngIf="activeFeatures.length > 0 && activeFeatures[selectedFeatureIndex] === 'schedule'">
+                  <div
+                    *ngIf="
+                      activeFeatures.length > 0 &&
+                      activeFeatures[selectedFeatureIndex] === 'schedule'
+                    "
+                  >
                     <div class="flex flex-col gap-0">
                       <!-- Header Container with Title and Controls -->
-                      <div class="bg-[#F5F5F5] border border-[#CED4DA] rounded-t-md">
-                        <div class="flex items-center justify-between px-6 py-4 gap-6">
-                          <h2 class="text-xl font-medium text-[#686868] whitespace-nowrap">Schedule</h2>
+                      <div
+                        class="bg-[#F5F5F5] border border-[#CED4DA] rounded-t-md"
+                      >
+                        <div
+                          class="flex items-center justify-between px-6 py-4 gap-6"
+                        >
+                          <h2
+                            class="text-xl font-medium text-[#686868] whitespace-nowrap"
+                          >
+                            Schedule
+                          </h2>
 
-                          <div class="flex-1 flex items-center justify-end gap-3">
+                          <div
+                            class="flex-1 flex items-center justify-end gap-3"
+                          >
                             <!-- Search Bar -->
                             <div class="relative">
                               <input
@@ -1434,20 +1457,52 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                       </div>
 
                       <!-- Table -->
-                      <div class="border border-[#CED4DA] border-t-0 rounded-b-md overflow-hidden">
+                      <div
+                        class="border border-[#CED4DA] border-t-0 rounded-b-md overflow-hidden"
+                      >
                         <!-- Table Header Row -->
-                        <div class="bg-white border-b border-[#CED4DA] grid grid-cols-[70px_1fr_130px_130px_130px_130px_100px] px-6 py-4 gap-4">
-                          <div class="text-[#181C32] font-bold text-base text-center">Sr. No</div>
-                          <div class="text-[#181C32] font-bold text-base">Title</div>
-                          <div class="text-[#181C32] font-bold text-base text-center">Date</div>
-                          <div class="text-[#181C32] font-bold text-base text-center">Start Time</div>
-                          <div class="text-[#181C32] font-bold text-base text-center">End Time</div>
-                          <div class="text-[#181C32] font-bold text-base text-center">Sponsor</div>
-                          <div class="text-[#181C32] font-bold text-base text-center">Action</div>
+                        <div
+                          class="bg-white border-b border-[#CED4DA] grid grid-cols-[70px_1fr_130px_130px_130px_130px_100px] px-6 py-4 gap-4"
+                        >
+                          <div
+                            class="text-[#181C32] font-bold text-base text-center"
+                          >
+                            Sr. No
+                          </div>
+                          <div class="text-[#181C32] font-bold text-base">
+                            Title
+                          </div>
+                          <div
+                            class="text-[#181C32] font-bold text-base text-center"
+                          >
+                            Date
+                          </div>
+                          <div
+                            class="text-[#181C32] font-bold text-base text-center"
+                          >
+                            Start Time
+                          </div>
+                          <div
+                            class="text-[#181C32] font-bold text-base text-center"
+                          >
+                            End Time
+                          </div>
+                          <div
+                            class="text-[#181C32] font-bold text-base text-center"
+                          >
+                            Sponsor
+                          </div>
+                          <div
+                            class="text-[#181C32] font-bold text-base text-center"
+                          >
+                            Action
+                          </div>
                         </div>
 
                         <!-- Table Body (Empty State) -->
-                        <div class="bg-white min-h-80 flex items-center justify-center">
+                        <div
+                          class="bg-white min-h-80 flex items-center justify-center"
+                        >
                           <div class="text-center py-16">
                             <svg
                               width="64"
@@ -1462,8 +1517,14 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                                 fill="#CED4DA"
                               />
                             </svg>
-                            <p class="text-[#686868] font-medium text-base mt-2">No schedules added yet</p>
-                            <p class="text-[#878A99] text-sm mt-2">Click "Add Schedule" to create your first schedule</p>
+                            <p
+                              class="text-[#686868] font-medium text-base mt-2"
+                            >
+                              No schedules added yet
+                            </p>
+                            <p class="text-[#878A99] text-sm mt-2">
+                              Click "Add Schedule" to create your first schedule
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -1472,7 +1533,10 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
 
                   <!-- Other Features Content (Placeholder) -->
                   <div
-                    *ngIf="activeFeatures.length > 0 && activeFeatures[selectedFeatureIndex] !== 'schedule'"
+                    *ngIf="
+                      activeFeatures.length > 0 &&
+                      activeFeatures[selectedFeatureIndex] !== 'schedule'
+                    "
                     class="flex flex-col items-center justify-center py-16 text-center"
                   >
                     <div
@@ -1498,7 +1562,9 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                     >
                       <p class="text-sm text-[#049AD0] font-medium">
                         💡 Content configuration for
-                        <strong>{{ getFeatureLabel(activeFeatures[selectedFeatureIndex]) }}</strong>
+                        <strong>{{
+                          getFeatureLabel(activeFeatures[selectedFeatureIndex])
+                        }}</strong>
                         will be available in the next release.
                       </p>
                     </div>
@@ -1543,7 +1609,10 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                     (click)="onNext()"
                     class="flex items-center gap-2 px-5 py-2 bg-[#009FD8] hover:bg-[#0385b5] text-white rounded font-semibold transition-colors"
                     [disabled]="activeFeatures.length === 0"
-                    [ngClass]="{'opacity-50 cursor-not-allowed': activeFeatures.length === 0}"
+                    [ngClass]="{
+                      'opacity-50 cursor-not-allowed':
+                        activeFeatures.length === 0,
+                    }"
                   >
                     <span>Next</span>
                     <svg
