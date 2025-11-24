@@ -1309,14 +1309,104 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                 </div>
               </div>
 
-              <!-- Features Content Tab (Placeholder) -->
+              <!-- Features Content Tab -->
               <div
                 *ngIf="currentTab === 'content'"
-                class="bg-white rounded shadow-md border border-[#E9E9E9] p-4 md:p-6 lg:p-8"
+                class="bg-white rounded shadow-md border border-[#E9E9E9]"
               >
-                <p class="text-center text-[#686868] py-12">
-                  Features Content Tab - Coming Soon
-                </p>
+                <!-- Selected Features Tabs -->
+                <div class="border-b border-[#CED4DA]">
+                  <div class="flex items-center gap-0 px-8 pt-8">
+                    <button
+                      *ngFor="let featureId of activeFeatures; let i = index"
+                      [class.active-feature-tab]="i === selectedFeatureIndex"
+                      (click)="selectedFeatureIndex = i"
+                      class="relative flex items-center gap-2 px-6 py-2.5 bg-white border border-[#CED4DA] shadow-sm transition-all hover:bg-gray-50"
+                      [ngClass]="{
+                        'bg-[#009FD8] text-white border-[#009FD8]':
+                          i === selectedFeatureIndex,
+                        'bg-white text-[#686868] border-[#CED4DA]':
+                          i !== selectedFeatureIndex,
+                        'rounded-l': i === 0 && i !== selectedFeatureIndex,
+                        'rounded-r':
+                          i === activeFeatures.length - 1 &&
+                          i !== selectedFeatureIndex,
+                        'rounded':
+                          i === selectedFeatureIndex ||
+                          (i === 0 && i === activeFeatures.length - 1),
+                      }"
+                    >
+                      <div
+                        [innerHTML]="getFeatureTabIcon(featureId, i)"
+                        class="w-6 h-6"
+                      ></div>
+                      <span class="text-sm md:text-base font-normal">
+                        {{ getFeatureLabel(featureId) }}
+                      </span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="p-8" style="min-height: 400px;">
+                  <div
+                    class="flex flex-col items-center justify-center py-16 text-center"
+                  >
+                    <div
+                      class="w-16 h-16 mb-6 flex items-center justify-center"
+                      [innerHTML]="
+                        getFeatureIcon(activeFeatures[selectedFeatureIndex])
+                      "
+                    ></div>
+                    <h3 class="text-xl font-semibold text-[#181C32] mb-2">
+                      {{
+                        getFeatureLabel(activeFeatures[selectedFeatureIndex])
+                      }}
+                      Content
+                    </h3>
+                    <p class="text-base text-[#686868] max-w-md">
+                      Configure the content for
+                      {{
+                        getFeatureLabel(activeFeatures[selectedFeatureIndex])
+                      }}
+                      feature here.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Footer with divider and Next button -->
+                <div
+                  class="px-8 py-6 border-t border-[#CED4DA] flex justify-end"
+                >
+                  <button
+                    (click)="onNext()"
+                    class="flex items-center gap-2 px-5 py-2 bg-[#009FD8] hover:bg-[#0385b5] text-white rounded font-semibold transition-colors"
+                  >
+                    <span>Next</span>
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3.75 9H14.25"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M9 3.75L14.25 9L9 14.25"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
