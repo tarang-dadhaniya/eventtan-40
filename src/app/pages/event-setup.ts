@@ -1331,7 +1331,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                         'rounded-r':
                           i === activeFeatures.length - 1 &&
                           i !== selectedFeatureIndex,
-                        'rounded':
+                        rounded:
                           i === selectedFeatureIndex ||
                           (i === 0 && i === activeFeatures.length - 1),
                       }"
@@ -1801,7 +1801,8 @@ export class EventSetupComponent implements OnInit {
     const color = isActive ? "#FFFFFF" : "#686868";
 
     if (featureId === "schedule") {
-      return this.getSafeHtml(`<svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      return this
+        .getSafeHtml(`<svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_1494_18783)">
           <path d="M19.4219 1.71875H18.3906V0H16.6719V1.71875H5.32812V0H3.60938V1.71875H2.57812C1.15655 1.71875 0 2.8753 0 4.29688V19.4219C0 20.8435 1.15655 22 2.57812 22H19.4219C20.8435 22 22 20.8435 22 19.4219V4.29688C22 2.8753 20.8435 1.71875 19.4219 1.71875ZM20.2812 19.4219C20.2812 19.8957 19.8957 20.2812 19.4219 20.2812H2.57812C2.10427 20.2812 1.71875 19.8957 1.71875 19.4219V8.07812H20.2812V19.4219ZM20.2812 6.35938H1.71875V4.29688C1.71875 3.82302 2.10427 3.4375 2.57812 3.4375H3.60938V5.15625H5.32812V3.4375H16.6719V5.15625H18.3906V3.4375H19.4219C19.8957 3.4375 20.2812 3.82302 20.2812 4.29688V6.35938Z" fill="${color}"/>
           <path d="M4.98438 9.88281H3.26562V11.6016H4.98438V9.88281Z" fill="${color}"/>
