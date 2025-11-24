@@ -1346,7 +1346,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                   <div *ngIf="activeFeatures.length > 0 && activeFeatures[selectedFeatureIndex] === 'schedule'">
                     <div class="flex flex-col gap-0">
                       <!-- Header Container with Title and Controls -->
-                      <div class="bg-[#F5F5F5] border-b border-[#CED4DA] rounded-t-md">
+                      <div class="bg-[#F5F5F5] border border-[#CED4DA] rounded-t-md">
                         <div class="flex items-center justify-between px-6 py-4 gap-6">
                           <h2 class="text-xl font-medium text-[#686868] whitespace-nowrap">Schedule</h2>
 
