@@ -1979,7 +1979,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                       <h2
                         class="text-xl md:text-2xl font-medium text-[#686868]"
                       >
-                        About {{ eventName || "Event" }}
+                        {{ aboutTitle || ("About " + eventName) }}
                       </h2>
                       <button
                         (click)="editAboutContent = true"
