@@ -747,7 +747,7 @@ import { FormsModule } from "@angular/forms";
 
             <div class="mb-6">
               <label class="block text-base font-medium text-[#212529] mb-2">
-                Upload Document
+                Upload Documents
               </label>
               <div
                 class="border border-dashed border-[#B9BBBC] rounded p-8 text-center cursor-pointer hover:border-[#009FD8] transition-colors"
@@ -769,21 +769,70 @@ import { FormsModule } from "@angular/forms";
                   />
                 </svg>
                 <p class="text-base font-medium text-[#212529]">
-                  Drop file here or click to upload.
+                  Drop files here or click to upload.
                 </p>
                 <input
                   #documentInput
                   type="file"
                   accept=".pdf,.doc,.docx"
+                  multiple
                   class="hidden"
                   (change)="onDocumentChange($event)"
                 />
-                <p
-                  *ngIf="formData.documentName"
-                  class="text-sm text-[#009FD8] mt-2"
+              </div>
+
+              <div
+                *ngIf="formData.documentNames.length > 0"
+                class="mt-4 space-y-2"
+              >
+                <div
+                  *ngFor="let docName of formData.documentNames; let i = index"
+                  class="flex items-center justify-between bg-[#F5F5F5] p-3 rounded border border-[#E9EBEC]"
                 >
-                  {{ formData.documentName }}
-                </p>
+                  <div class="flex items-center gap-2">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10 2H3C2.44772 2 2 2.44772 2 3V13C2 13.5523 2.44772 14 3 14H13C13.5523 14 14 13.5523 14 13V6L10 2Z"
+                        fill="#009FD8"
+                      />
+                      <path
+                        d="M10 2V6H14"
+                        stroke="#009FD8"
+                        stroke-width="1.5"
+                      />
+                    </svg>
+                    <span class="text-sm text-[#212529]" [title]="docName">
+                      {{ docName }}
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    (click)="removeDocument(i)"
+                    class="text-red-500 hover:text-red-700 transition-colors"
+                    title="Remove file"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 13.5L13 3.5M3 3.5L13 13.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
