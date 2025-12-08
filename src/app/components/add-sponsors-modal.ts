@@ -56,7 +56,7 @@ import { FormsModule } from "@angular/forms";
             <div class="flex justify-center mb-8">
               <div class="relative">
                 <div
-                  class="w-[120px] h-[120px] rounded-full border-2 border-[#8B8B8B] bg-[#F5F5F5] flex items-center justify-center overflow-hidden cursor-pointer"
+                  class="w-[100px] h-[100px] rounded-full border-2 border-[#8B8B8B] bg-[#F5F5F5] flex items-center justify-center overflow-hidden cursor-pointer"
                   (click)="logoInput.click()"
                 >
                   <img
