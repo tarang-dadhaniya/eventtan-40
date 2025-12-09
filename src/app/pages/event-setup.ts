@@ -3196,6 +3196,8 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
     <!-- Add Social Media Modal -->
     <app-add-social-media-modal
       [isOpen]="isSocialMediaModalOpen"
+      [editMode]="editModeSocialMedia"
+      [socialMediaData]="editingSocialMedia"
       (close)="closeSocialMediaModal()"
       (submit)="onSocialMediaSave($event)"
     ></app-add-social-media-modal>
